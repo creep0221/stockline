@@ -102,9 +102,9 @@ def handle_message(event):
                                     config=generation_config).text
             # 取得生成結果
             out = completion
-        except Except as e:
+        except Exception as e:
             # 處理錯誤
-            out = f"Gemini執行出錯! {type(e).__name__} 請換個說法！" 
+            out = f"Gemini執行出錯! {e} 請換個說法！" 
   
         # 回覆生成結果
         line_bot_api.reply_message(
